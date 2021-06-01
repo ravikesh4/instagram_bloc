@@ -7,14 +7,16 @@ class CustomRouter {
     switch (settings.name) {
       case '/':
         return MaterialPageRoute(
-          settings: const RouteSettings(
-            name: '/'
-          ),
-          builder: (_) => Scaffold(),);
+          settings: const RouteSettings(name: '/'),
+          builder: (_) => Scaffold(),
+        );
         break;
       case SplashScreen.routeName:
         return SplashScreen.route();
-
+      case LoginScreen.routeName:
+        return LoginScreen.route();
+      case NavScreen.routeName:
+        return NavScreen.route();
       default:
         return _errorRoute();
     }
@@ -22,16 +24,15 @@ class CustomRouter {
 
   static Route _errorRoute() {
     return MaterialPageRoute(
-          settings: const RouteSettings(
-            name: '/error'
-          ),
-          builder: (_) => Scaffold(
-            appBar: AppBar(
-              title: const Text('Error'),
-            ),
-            body: Center(
-              child: Text('Something went wrong'),
-            ),
-          ),);
+      settings: const RouteSettings(name: '/error'),
+      builder: (_) => Scaffold(
+        appBar: AppBar(
+          title: const Text('Error'),
+        ),
+        body: Center(
+          child: Text('Something went wrong'),
+        ),
+      ),
+    );
   }
 }
